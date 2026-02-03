@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Sejarah Dictionary</h1>
+
+    <input id="search" placeholder="Type Malay / Chinese">
+
+    <div id="filter">
+        <select id="subjectFilter">
+            <option value="">All Types</option>
+            <option value="General">General</option>
+            <option value="Negara">Negara </option>//国家
+            <option value="Isme">Isme</option>//主义
+            <option value="Profesion">Profesion</option>//职业
+            <option value="Perjanjian">Perjanjian</option>//条约
+            <option value="Peristiwa">Peristiwa</option>//事件
+            <option value="Benda">Benda</option>//物品
+        </select>
+        <select id="sortSelect">
+            <option value="">Default</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="marked">Marked First</option>
+        </select>
+        <button id="clearFilter">Clear Filter</button>
+        <button id="showMarkedBtn">⭐ Show Marked Words</button>
+    </div>
+
+    <div id="list"></div>
+
+    <!-- ===== 详情页 ===== -->
+    <div id="detail" style="display:none;">
+        <button id="backBtn">← Back</button>
+
+        <h2>
+            <span id="dMs"></span>
+            <button id="pronounceBtn" title="Pronounce">🔊</button>
+        </h2>
+        <p id="dCn"></p>
+        <div id="dTags"></div>
+
+        <p><strong>Category:</strong> <span id="dCategory"></span></p>
+        <p><strong>Chinese:</strong> <span id="dDescription"></span></p>
+        <p><strong>Malay:</strong> <span id="dMsDescription"></span></p>
+        <p><strong>Example:</strong> <span id="dExample"></span></p>
+        <!-- 图片 / Video / Link Container -->
+        <div id="dMedia" style="margin-top: 15px;"></div>
+        <div id="dLinks" style="margin-top: 10px;"></div>
+        <!-- 所属分类 -->
+        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span>
+        </p>
+        <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span>
+        </p>
+        <p id="dSimilar"><strong>Related Words:</strong></p>
+        <button id="markDetailBtn">☆ Mark</button>
+        <button id="reportBtn">⚠️ Report Error</button>
+        <!-- 更新时间 -->
+        <div id="dUpdated" class="detail-updated"></div>
+
+        <div id="reportForm" style="display:none;">
+            <p>Please fill in correct info:</p>
+            <textarea id="reportText" rows="4" placeholder="Enter correct Malay / Chinese etc"></textarea>
+            <button id="submitReport">Submit</button>
+            <button id="cancelReport">Cancel</button>
+        </div>
+    </div>
+
+
+
+    <!-- ===== 网站信息页 ===== -->
+    <div id="about" style="display:none;">
+        <button id="aboutBackBtn">← Back</button>
+
+        <h2>网站信息 / Website Information</h2>
+
+        <section class="about-section">
+            <h3>项目简介 / About</h3>
+            <p>历史词典是一个面向马来西亚Form 4/Form 5 学生的在线学习工具，用于快速查询历史中的重要术语。</p>
+            <p>Sejarah Dictionary is an online learning tool designed for Malaysian Form 4/Form 5 students, used for
+                quickly
+                looking up important terms in Sejarah.</p>
+        </section>
+
+        <section class="about-section">
+            <h3>制作人员 / Credits</h3>
+            <ul>
+                <li><strong>项目概念：</strong> WASABISOCUTE</li>
+                <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
+                <li><strong>代码：</strong> <del>ChatGPT</del> Google Antigravity</li>
+            </ul>
+            <ul>
+                <li><strong>Project Concept:</strong> WASABISOCUTE</li>
+                <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
+                <li><strong>Code Assistance:</strong> <del>ChatGPT</del> Google Antigravity</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h3>开源信息 / Open Source</h3>
+            <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
+            <p>This project is hosted on GitHub. Issues and Pull Requests are welcome.</p>
+        </section>
+
+        <section class="about-section">
+            <h3>
+                贡献者 / Contributors
+                <span id="contributorsInfo" class="info-icon">i</span>
+            </h3>
+            <div id="contributorsTip" class="info-tooltip">
+                数据来自 GitHub API / Data fetched from GitHub API
+            </div>
+            <ul id="contributors">
+                <li>Loading...</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h3>计划添加功能 / Planned Features</h3>
+            <ul>
+                <li><strong>公式查找</strong></li>
+                <li><strong>设置</strong></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <span id="aboutLink">网站信息</span>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        const input = document.getElementById("search");
+        const list = document.getElementById("list");
+        const detail = document.getElementById("detail");
+        const about = document.getElementById("about");
+
+        const backBtn = document.getElementById("backBtn");
+        const aboutBackBtn = document.getElementById("aboutBackBtn");
+        const aboutLink = document.getElementById("aboutLink");
+
+        const dMs = document.getElementById("dMs");
+        const dCn = document.getElementById("dCn");
+        const dTags = document.getElementById("dTags");
+        const dCategory = document.getElementById("dCategory");
+        const dDescription = document.getElementById("dDescription");
+        const dMsDescription = document.getElementById("dMsDescription");
+        const dExample = document.getElementById("dExample");
+        const dSimilar = document.getElementById("dSimilar");
+        const belongsBlock = document.getElementById("belongsBlock");
+        const belongsList = document.getElementById("belongsList");
+        const classificationBlock = document.getElementById("classificationBlock");
+        const classificationList = document.getElementById("classificationList");
+
+        const sortSelect = document.getElementById("sortSelect");
+        const subjectFilter = document.getElementById("subjectFilter");
+        const clearFilter = document.getElementById("clearFilter");
+        const showMarkedBtn = document.getElementById("showMarkedBtn");
+
+        const dUpdated = document.getElementById("dUpdated");
+
+        const reportBtn = document.getElementById("reportBtn");
+        const reportForm = document.getElementById("reportForm");
+        const reportText = document.getElementById("reportText");
+        const submitReport = document.getElementById("submitReport");
+        const cancelReport = document.getElementById("cancelReport");
+
+        const markDetailBtn = document.getElementById("markDetailBtn");
+
+        let currentWord = null;
+        let markedWords = JSON.parse(localStorage.getItem("markedWords") || "[]");
+        let showingMarkedOnly = false;
+
+        /* ===== 标记逻辑 ===== */
+        function updateMarkBtn(btn, ms) { btn.textContent = markedWords.includes(ms) ? "★" : "☆"; }
+        function toggleMark(ms) {
+            if (markedWords.includes(ms)) markedWords = markedWords.filter(w => w !== ms);
+            else markedWords.push(ms);
+            localStorage.setItem("markedWords", JSON.stringify(markedWords));
+        }
+        function initMarkButtons() {
+            document.querySelectorAll(".markBtn").forEach(btn => {
+                const ms = btn.dataset.ms;
+                updateMarkBtn(btn, ms);
+                btn.onclick = e => {
+                    e.stopPropagation();
+                    toggleMark(ms);
+                    updateMarkBtn(btn, ms);
+                };
+            });
+        }
+
+
+
+        /* ===== 渲染 ===== */
+
+        function render(items) {
+            list.innerHTML = "";
+            items.forEach(w => {
+                const div = document.createElement("div");
+                div.className = "card";
+                const parents = getParentCategories(w);
+
+                div.innerHTML = `
+      <h2>${w.ms} / ${w.cn}</h2>
+
+      ${parents.length > 0
+                        ? `<div class="belongs-text">
+               属于：${parents.map(p => `${p.ms}`).join(", ")}
+             </div>`
+                        : ""
+                    }
+
+      <div class="tags">
+        ${(w.tags || []).map(t =>
+                        `<span class="tag ${t}" data-tag="${t}">${t}</span>`
+                    ).join("")}
+      </div>
+
+      <button class="markBtn" data-ms="${w.ms}">☆</button>
+`;
+
+                div.onclick = () => showDetail(w);
+                list.appendChild(div);
+            });
+            initMarkButtons();
+        }
+
+        /* ===== 详情页 ===== */
+        function showDetail(word) {
+            currentWord = word;
+            list.style.display = "none";
+            about.style.display = "none";
+            detail.style.display = "block";
+
+            dMs.textContent = word.ms;
+            dCn.textContent = word.cn;
+            dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
+            const setVisible = (el, val, isFormula = false) => {
+                if (val && val !== "无") {
+                    el.parentElement.style.display = "block";
+                    if (isFormula) el.innerHTML = `\\(${val}\\)`;
+                    else el.textContent = val;
+                } else {
+                    el.parentElement.style.display = "none";
+                }
+            };
+
+            setVisible(dCategory, word.category);
+            setVisible(dDescription, word.Description);
+            setVisible(dMsDescription, word.MsDescription);
+            setVisible(dExample, word.example);
+
+            /* ===== Image / Video / Links ===== */
+            const dMedia = document.getElementById("dMedia");
+            const dLinks = document.getElementById("dLinks");
+            dMedia.innerHTML = "";
+            dLinks.innerHTML = "";
+
+            // Image
+            if (word.image) {
+                const img = document.createElement("img");
+                img.src = word.image;
+                img.style.maxWidth = "100%";
+                img.style.borderRadius = "8px";
+                img.style.marginTop = "10px";
+                dMedia.appendChild(img);
+
+                if (word.imageAlt) {
+                    const caption = document.createElement("p");
+                    caption.textContent = word.imageAlt;
+                    caption.style.fontSize = "12px";
+                    caption.style.color = "#888";
+                    caption.style.marginTop = "4px";
+                    dMedia.appendChild(caption);
+                }
+            }
+
+            if (word.gif) {
+                const gif = document.createElement("img");
+                gif.src = word.gif;
+                gif.style.maxWidth = "100%";
+                gif.style.borderRadius = "8px";
+                gif.style.marginTop = "10px";
+                dMedia.appendChild(gif);
+            }
+
+            // Video (Loop if multiple logic needed, but simplifying for single field logic first. Or check if word.video is array)
+            if (word.video) {
+                const vidContainer = document.createElement("div");
+                vidContainer.style.marginTop = "10px";
+
+                if (word.video.includes("youtube.com") || word.video.includes("youtu.be")) {
+                    const iframe = document.createElement("iframe");
+                    iframe.width = "80%";
+                    iframe.height = "300";
+                    let videoId = "";
+                    if (word.video.includes("youtu.be/")) {
+                        videoId = word.video.split("youtu.be/")[1].split("?")[0];
+                    } else if (word.video.includes("watch?v=")) {
+                        videoId = word.video.split("watch?v=")[1].split("&")[0];
+                    }
+
+                    if (videoId) {
+                        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                    } else {
+                        // 如果已经是 embed 链接或其他格式 / If already embed link or other format
+                        iframe.src = word.video;
+                    }
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    vidContainer.appendChild(iframe);
+                } else {
+                    const vid = document.createElement("video");
+                    vid.src = word.video;
+                    vid.controls = true;
+                    vid.style.width = "100%";
+                    vid.style.borderRadius = "8px";
+                    vidContainer.appendChild(vid);
+                }
+                dMedia.appendChild(vidContainer);
+            }
+
+            // Links
+            if (word.links && word.links.length > 0) {
+                const ul = document.createElement("ul");
+                ul.style.paddingLeft = "20px";
+                word.links.forEach(l => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = l.url;
+                    a.target = "_blank";
+                    a.textContent = l.text || l.url;
+                    a.style.color = "#60a5fa"; // Tailwind blue-400 equivalent match
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                dLinks.innerHTML = "<strong>相关链接 / Links:</strong>";
+                dLinks.appendChild(ul);
+            }
+
+            dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+            const simWords = word.similar || [];
+            let hasSimilar = false;
+            simWords.forEach(s => {
+                const sw = words.find(w => w.ms === s);
+                if (sw) {
+                    hasSimilar = true;
+                    const b = document.createElement("button");
+                    b.textContent = sw.ms;
+                    b.className = "tag";
+                    b.onclick = () => showDetail(sw);
+                    dSimilar.appendChild(b);
+                }
+            });
+
+            dSimilar.style.display = hasSimilar ? "block" : "none";
+
+            const pronounceBtn = document.getElementById("pronounceBtn");
+
+            /*发音 */
+            function pronounceWord(text) {
+                if (!window.speechSynthesis) return;
+
+                speechSynthesis.cancel(); // 停止上一次发音
+
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = "ms-MY";
+                utter.rate = 0.9;
+                utter.pitch = 1;
+
+                // 优先选择英文声音
+                const voices = speechSynthesis.getVoices();
+                const msVoice = voices.find(v => v.lang.startsWith("ms"));
+                if (msVoice) utter.voice = msVoice;
+
+                speechSynthesis.speak(utter);
+            }
+
+            pronounceBtn.onclick = () => {
+                if (currentWord) {
+                    pronounceWord(currentWord.ms);
+                }
+            };
+
+
+            /* 所属分类 / Belongs to */
+            belongsList.innerHTML = "";
+
+            const parents = words.filter(w =>
+                Array.isArray(w.classification) &&
+                w.classification.some(c => c.ms === word.ms)
+            );
+
+            if (parents.length > 0) {
+                belongsBlock.style.display = "block";
+
+                parents.forEach(p => {
+                    const tag = document.createElement("span");
+                    tag.className = "tag";
+                    tag.textContent = `${p.ms} / ${p.cn}`;
+
+                    tag.onclick = () => showDetail(p);
+
+                    belongsList.appendChild(tag);
+                });
+            } else {
+                belongsBlock.style.display = "none";
+            }
+
+            /* 分类 / Classification */
+            classificationList.innerHTML = "";
+
+            if (word.classification && word.classification.length > 0) {
+                classificationBlock.style.display = "block";
+
+                word.classification.forEach(item => {
+                    const btn = document.createElement("span");
+                    btn.className = "tag";
+                    btn.textContent = `${item.ms} / ${item.cn}`;
+
+                    btn.onclick = () => {
+                        input.value = item.ms;
+                        input.dispatchEvent(new Event('input'));
+                    };
+
+                    classificationList.appendChild(btn);
+                });
+            } else {
+                classificationBlock.style.display = "none";
+            }
+
+            /* 更新时间 */
+            if (word.updated) {
+                dUpdated.textContent = `Last Updated: ${word.updated}`;
+            } else {
+                dUpdated.textContent = "Last Updated: Unknown";
+            }
+
+            updateMarkBtn(markDetailBtn, word.ms);
+            MathJax.typesetPromise();
+        }
+        /* ===== 列表中属于 ===== */
+        function getParentCategories(word) {
+            return words.filter(w =>
+                Array.isArray(w.classification) &&
+                w.classification.some(c => c.ms === word.ms)
+            );
+        }
+
+        /* ===== 页面切换 ===== */
+        backBtn.onclick = () => { detail.style.display = "none"; list.style.display = "block"; }
+        aboutLink.onclick = () => { list.style.display = "none"; detail.style.display = "none"; about.style.display = "block"; }
+        aboutBackBtn.onclick = () => { about.style.display = "none"; list.style.display = "block"; }
+
+        /* ===== 搜索 & 筛选 ===== */
+        input.oninput = () => { const q = input.value.toLowerCase(); render(words.filter(w => w.ms.toLowerCase().includes(q) || w.cn.includes(q) || (w.tags || []).join("").toLowerCase().includes(q))); };
+        function applyFilters() {
+            let result = words;
+            if (subjectFilter.value) result = result.filter(w => (w.tags || []).includes(subjectFilter.value));
+            if (showingMarkedOnly) result = result.filter(w => markedWords.includes(w.ms));
+            result = applySort(result);
+            render(result);
+        }
+        sortSelect.addEventListener("change", applyFilters);
+        subjectFilter.onchange = applyFilters;
+        clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Show Marked Words"; render(words); };
+        showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Show All Words" : "⭐ Show Marked Words"; applyFilters(); };
+        markDetailBtn.onclick = () => { if (currentWord) { toggleMark(currentWord.ms); updateMarkBtn(markDetailBtn, currentWord.ms); } };
+        /* ===== 排序 ===== */
+        function applySort(list) {
+            const mode = sortSelect.value;
+            const arr = [...list];
+
+            if (mode === "az") {
+                arr.sort((a, b) => a.ms.localeCompare(b.ms));
+            }
+            else if (mode === "za") {
+                arr.sort((a, b) => b.ms.localeCompare(a.ms));
+            }
+            else if (mode === "marked") {
+                arr.sort((a, b) => {
+                    const aMarked = markedWords.includes(a.ms);
+                    const bMarked = markedWords.includes(b.ms);
+                    return bMarked - aMarked;
+                });
+            }
+
+            return arr;
+        }
+        /* ===== 报错 ===== */
+        reportBtn.onclick = () => reportForm.style.display = "block";
+        cancelReport.onclick = () => reportForm.style.display = "none";
+        submitReport.onclick = () => {
+            if (currentWord && reportText.value.trim()) {
+                const repo = "https://github.com/WASABISOCUTE/sejarah-dictionary/issues/new";
+                const title = encodeURIComponent(`Sejarah Dictionary Error Report: ${currentWord.ms}`);
+                const body = encodeURIComponent(reportText.value);
+                window.open(`${repo}?title=${title}&body=${body}`, "_blank");
+                reportForm.style.display = "none"; reportText.value = "";
+            }
+        };
+
+        /* ===== GitHub 贡献者 ===== */
+        const contributorsList = document.getElementById("contributors");
+        fetch("https://api.github.com/repos/WASABISOCUTE/sejarah-dictionary/contributors")
+            .then(res => res.json())
+            .then(data => {
+                contributorsList.innerHTML = "";
+                data.forEach(user => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<a href="${user.html_url}" target="_blank" style="color:#60a5fa;">${user.login}</a> （${user.contributions} commits）`;
+                    contributorsList.appendChild(li);
+                });
+            }).catch(() => { contributorsList.innerHTML = "<li>无法加载贡献者列表</li>"; });
+
+        /* ===== tooltip 修复 ===== */
+        const contributorsInfo = document.getElementById("contributorsInfo");
+        const contributorsTip = document.getElementById("contributorsTip");
+        let tipVisible = false;
+
+        // 点击切换显示
+        contributorsInfo.addEventListener("click", e => {
+            e.stopPropagation();
+            tipVisible = !tipVisible;
+            contributorsTip.style.display = tipVisible ? "block" : "none";
+        });
+
+        // 点击页面其他地方关闭 tooltip
+        document.addEventListener("click", () => {
+            tipVisible = false;
+            contributorsTip.style.display = "none";
+        });
+
+        /* ===== 标签筛选 ===== */
+        document.body.addEventListener("click", e => {
+            if (e.target.classList.contains("tag") && e.target.dataset.tag) {
+                const tag = e.target.dataset.tag;
+                render(words.filter(w => (w.tags || []).includes(e.target.dataset.tag)));
+                detail.style.display = "none";
+                list.style.display = "block";
+            }
+        });
+
+        render(words);
+    </script>
+</body>
+
+</html>

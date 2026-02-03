@@ -1,0 +1,337 @@
+/* ===== Global ===== */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 16px;
+    margin: 0;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== Search ===== */
+input {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 20px;
+    background: #1e293b;
+    color: #e5e7eb;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+/* ===== Filter ===== */
+#filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#filter select,
+#filter button {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+#filter button:hover,
+#filter select:hover {
+    background: #2563eb;
+}
+
+/* ===== Card ===== */
+.card {
+    position: relative;
+    background: #1e293b;
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    background: #243047;
+}
+
+.card h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+/* ===== Tag ===== */
+.tags {
+    margin-top: 6px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-right: 6px;
+    margin-top: 6px;
+    font-size: 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #2563eb;
+    user-select: none;
+}
+
+.tag:hover {
+    opacity: 0.85;
+}
+
+/* ===== Mark Button ===== */
+.markBtn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    color: #f59e0b;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.markBtn:hover {
+    transform: scale(1.25);
+}
+
+/* ===== Detail ===== */
+#detail,
+#about {
+    margin-top: 20px;
+}
+
+#detail h2 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+#detail p {
+    line-height: 1.6;
+}
+
+/* ===== Button ===== */
+#backBtn,
+#aboutBackBtn,
+#reportBtn,
+#submitReport,
+#cancelReport,
+#markDetailBtn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+    background: #2563eb;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#backBtn:hover,
+#aboutBackBtn:hover,
+#reportBtn:hover,
+#submitReport:hover,
+#cancelReport:hover,
+#markDetailBtn:hover {
+    background: #1e40af;
+}
+
+#backBtn:active,
+#aboutBackBtn:active,
+#reportBtn:active,
+#submitReport:active,
+#cancelReport:active,
+#markDetailBtn:active {
+    transform: scale(0.96);
+}
+
+/* ===== Error Report ===== */
+#reportForm textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    font-size: 14px;
+    margin-bottom: 8px;
+    resize: vertical;
+}
+
+/* ===== Website Info ===== */
+.about-section {
+    margin-top: 20px;
+}
+
+.about-section h3 {
+    margin-bottom: 8px;
+}
+
+.about-section ul {
+    padding-left: 20px;
+}
+
+.about-section li {
+    margin-bottom: 6px;
+}
+
+/* ===== Contributors Tooltip Icon ===== */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 6px;
+    border-radius: 50%;
+    border: 1px solid #94a3b8;
+    color: #94a3b8;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.info-icon:hover {
+    background: #334155;
+}
+/* tooltip 修复样式 */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.info-tooltip {
+  display: none;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: none; /* 防止鼠标进入导致闪烁 */
+}
+/* ===== Contributors Tooltip ===== */
+.info-tooltip {
+    display: none;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 16px 0;
+    color: #9ca3af;
+}
+
+#aboutLink {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#aboutLink:hover {
+    color: #e5e7eb;
+}
+
+/* ===== Hide Scroll Bar ===== */
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* IE */
+body {
+    -ms-overflow-style: none;
+}
+
+/* ===== Added: Sort Control ===== */
+#sortSelect {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#sortSelect:hover {
+    background: #2563eb;
+}
+
+/* ===== Detail Updated Time ===== */
+.detail-updated {
+    margin-top: 18px;
+    padding-top: 10px;
+    border-top: 1px dashed #334155;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.belongs-text {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 4px 0 6px;
+}
+
+#pronounceBtn {
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#pronounceBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#pronounceBtn:active {
+  transform: scale(0.92);
+}
