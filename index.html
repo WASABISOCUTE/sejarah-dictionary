@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sejarah Dictionary</title>
+    <title>Kamus Sejarah</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Sejarah Dictionary</h1>
+    <h1>Kamus Sejarah</h1>
 
-    <input id="search" placeholder="Type Malay / Chinese">
+    <input id="search" placeholder="Jenis Bahasa Melayu / Bahasa Cina">
 
     <div id="filter">
         <select id="subjectFilter">
@@ -24,6 +24,7 @@
             <option value="Perjanjian">Perjanjian</option>//条约
             <option value="Peristiwa">Peristiwa</option>//事件
             <option value="Benda">Benda</option>//物品
+            <option value="Sistem">Sistem</option>//体系
         </select>
         <select id="sortSelect">
             <option value="">Default</option>
@@ -49,18 +50,18 @@
         <div id="dTags"></div>
 
         <p><strong>Category:</strong> <span id="dCategory"></span></p>
-        <p><strong>Chinese:</strong> <span id="dDescription"></span></p>
-        <p><strong>Malay:</strong> <span id="dMsDescription"></span></p>
-        <p><strong>Example:</strong> <span id="dExample"></span></p>
+        <p><strong>中文:</strong> <span id="dDescription"></span></p>
+        <p><strong>Bahasa Malayu:</strong> <span id="dMsDescription"></span></p>
+        <p><strong>Contoh:</strong> <span id="dExample"></span></p>
         <!-- 图片 / Video / Link Container -->
         <div id="dMedia" style="margin-top: 15px;"></div>
         <div id="dLinks" style="margin-top: 10px;"></div>
         <!-- 所属分类 -->
-        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span>
+        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Kepunyaan:</strong> <span id="belongsList"></span>
         </p>
         <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span>
         </p>
-        <p id="dSimilar"><strong>Related Words:</strong></p>
+        <p id="dSimilar"><strong>Perkataan Berkaitan:</strong></p>
         <button id="markDetailBtn">☆ Mark</button>
         <button id="reportBtn">⚠️ Report Error</button>
         <!-- 更新时间 -->
@@ -80,34 +81,32 @@
     <div id="about" style="display:none;">
         <button id="aboutBackBtn">← Back</button>
 
-        <h2>网站信息 / Website Information</h2>
+        <h2>网站信息 / Maklumat Laman Web</h2>
 
         <section class="about-section">
             <h3>项目简介 / About</h3>
             <p>历史词典是一个面向马来西亚Form 4/Form 5 学生的在线学习工具，用于快速查询历史中的重要术语。</p>
-            <p>Sejarah Dictionary is an online learning tool designed for Malaysian Form 4/Form 5 students, used for
-                quickly
-                looking up important terms in Sejarah.</p>
+            <p>Kamus Sejarah ialah alat pembelajaran dalam talian yang direka untuk pelajar Tingkatan 4/Tingkatan 5 Malaysia, digunakan untuk mencari istilah penting dalam Sejarah dengan cepat..</p>
         </section>
 
         <section class="about-section">
-            <h3>制作人员 / Credits</h3>
+            <h3>制作人员 / Kredit</h3>
             <ul>
                 <li><strong>项目概念：</strong> WASABISOCUTE</li>
                 <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
                 <li><strong>代码：</strong> <del>ChatGPT</del> Google Antigravity</li>
             </ul>
             <ul>
-                <li><strong>Project Concept:</strong> WASABISOCUTE</li>
-                <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
-                <li><strong>Code Assistance:</strong> <del>ChatGPT</del> Google Antigravity</li>
+                <li><strong>Konsep Projek:</strong> WASABISOCUTE</li>
+                <li><strong>Reka Bentuk UI dan Ciri:</strong> WASABISOCUTE</li>
+                <li><strong>Bantuan Kod:</strong> <del>ChatGPT</del> Google Antigravity</li>
             </ul>
         </section>
 
         <section class="about-section">
             <h3>开源信息 / Open Source</h3>
             <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
-            <p>This project is hosted on GitHub. Issues and Pull Requests are welcome.</p>
+            <p>Projek ini dihoskan di GitHub. Isu dan Permintaan Tarik dialu-alukan.</p>
         </section>
 
         <section class="about-section">
@@ -116,7 +115,7 @@
                 <span id="contributorsInfo" class="info-icon">i</span>
             </h3>
             <div id="contributorsTip" class="info-tooltip">
-                数据来自 GitHub API / Data fetched from GitHub API
+                数据来自 GitHub API / Data diambil daripada API GitHub
             </div>
             <ul id="contributors">
                 <li>Loading...</li>
@@ -126,8 +125,7 @@
         <section class="about-section">
             <h3>计划添加功能 / Planned Features</h3>
             <ul>
-                <li><strong>公式查找</strong></li>
-                <li><strong>设置</strong></li>
+                <li><strong>To be added</strong></li>
             </ul>
         </section>
     </div>
