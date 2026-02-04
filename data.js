@@ -107,7 +107,7 @@ const words = [
   },
   {
     "ms": "Undang-undang Laut Melaka",
-    "cn": "马六甲海事法",
+    "cn": "马六甲海事法典",
     "MsDescription": "Undang-undang Laut Melaka merupakan undang-undang yang digubal untuk mengatur aktiviti perdagangan di pelabuhan Melaka. Undang-undang ini memastikan keselamatan dan kelancaran aktiviti perdagangan di pelabuhan Melaka.",
     "Description": "马六甲海事法是为规范马六甲港口的贸易活动而制定的法律。这些法律确保了马六甲港口贸易活动的顺利进行。",
     "tags": ["Perjanjian"],
