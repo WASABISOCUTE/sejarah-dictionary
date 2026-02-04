@@ -30,7 +30,7 @@
             <option value="">Lalai</option>
             <option value="az">A → Z</option>
             <option value="za">Z → A</option>
-            <option value="marked">Ditanda Pertama</option>
+            <option value="marked">Ditanda</option>
         </select>
         <button id="clearFilter">Kosongkan Penapis</button>
         <button id="showMarkedBtn">⭐ Tunjukkan Perkataan yang Ditanda</button>
@@ -44,7 +44,7 @@
 
         <h2>
             <span id="dMs"></span>
-            <button id="pronounceBtn" title="Pronounce">🔊</button>
+            <button id="pronounceBtn" title="Sebut">🔊</button>
         </h2>
         <p id="dCn"></p>
         <div id="dTags"></div>
@@ -63,15 +63,15 @@
         </p>
         <p id="dSimilar"><strong>Perkataan Berkaitan:</strong></p>
         <button id="markDetailBtn">☆ Tanda</button>
-        <button id="reportBtn">⚠️ Report Error</button>
+        <button id="reportBtn">⚠️ Lapor Ralat</button>
         <!-- 更新时间 -->
         <div id="dUpdated" class="detail-updated"></div>
 
         <div id="reportForm" style="display:none;">
-            <p>Please fill in correct info:</p>
-            <textarea id="reportText" rows="4" placeholder="Enter correct Malay / Chinese etc"></textarea>
-            <button id="submitReport">Submit</button>
-            <button id="cancelReport">Cancel</button>
+            <p>Sila isikan maklumat yang betul:</p>
+            <textarea id="reportText" rows="4" placeholder="Masukkan Bahasa Melayu / Cina yang betul dll."></textarea>
+            <button id="submitReport">Hantar</button>
+            <button id="cancelReport">Batal</button>
         </div>
     </div>
 
@@ -86,7 +86,8 @@
         <section class="about-section">
             <h3>项目简介 / Mengenai</h3>
             <p>历史词典是一个面向马来西亚Form 4/Form 5 学生的在线学习工具，用于快速查询历史中的重要术语。</p>
-            <p>Kamus Sejarah ialah alat pembelajaran dalam talian yang direka untuk pelajar Tingkatan 4/Tingkatan 5 Malaysia, digunakan untuk mencari istilah penting dalam Sejarah dengan cepat..</p>
+            <p>Kamus Sejarah ialah alat pembelajaran dalam talian yang direka untuk pelajar Tingkatan 4/Tingkatan 5
+                Malaysia, digunakan untuk mencari istilah penting dalam Sejarah dengan cepat..</p>
         </section>
 
         <section class="about-section">
@@ -104,7 +105,7 @@
         </section>
 
         <section class="about-section">
-            <h3>开源信息 / Open Source</h3>
+            <h3>开源信息 / Sumber Terbuka</h3>
             <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
             <p>Projek ini dihoskan di GitHub. Isu dan Permintaan Tarik dialu-alukan.</p>
         </section>
@@ -118,14 +119,14 @@
                 数据来自 GitHub API / Data diambil daripada API GitHub
             </div>
             <ul id="contributors">
-                <li>Loading...</li>
+                <li>Memuatkan...</li>
             </ul>
         </section>
 
         <section class="about-section">
             <h3>计划添加功能 / Ciri-ciri yang Dirancang</h3>
             <ul>
-                <li><strong>To be added</strong></li>
+                <li><strong>Akan ditambah</strong></li>
             </ul>
         </section>
     </div>
@@ -342,7 +343,7 @@
                     li.appendChild(a);
                     ul.appendChild(li);
                 });
-                dLinks.innerHTML = "<strong>相关链接 / Links:</strong>";
+                dLinks.innerHTML = "<strong>Pautan Berkaitan / 相关链接:</strong>";
                 dLinks.appendChild(ul);
             }
 
@@ -373,7 +374,7 @@
 
                 const utter = new SpeechSynthesisUtterance(text);
                 utter.lang = "ms-MY";
-                utter.rate = 0.9;
+                utter.rate = 1;
                 utter.pitch = 1;
 
                 // 优先选择英文声音
@@ -439,9 +440,9 @@
 
             /* 更新时间 */
             if (word.updated) {
-                dUpdated.textContent = `Last Updated: ${word.updated}`;
+                dUpdated.textContent = `Terakhir Dikemaskini: ${word.updated}`;
             } else {
-                dUpdated.textContent = "Last Updated: Unknown";
+                dUpdated.textContent = "Terakhir Dikemaskini: Tidak Diketahui";
             }
 
             updateMarkBtn(markDetailBtn, word.ms);
@@ -471,8 +472,8 @@
         }
         sortSelect.addEventListener("change", applyFilters);
         subjectFilter.onchange = applyFilters;
-        clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Show Marked Words"; render(words); };
-        showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Show All Words" : "⭐ Show Marked Words"; applyFilters(); };
+        clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Tunjukkan Perkataan Ditanda"; render(words); };
+        showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Tunjukkan Semua Perkataan" : "⭐ Tunjukkan Perkataan Ditanda"; applyFilters(); };
         markDetailBtn.onclick = () => { if (currentWord) { toggleMark(currentWord.ms); updateMarkBtn(markDetailBtn, currentWord.ms); } };
         /* ===== 排序 ===== */
         function applySort(list) {
@@ -501,7 +502,7 @@
         submitReport.onclick = () => {
             if (currentWord && reportText.value.trim()) {
                 const repo = "https://github.com/WASABISOCUTE/sejarah-dictionary/issues/new";
-                const title = encodeURIComponent(`Sejarah Dictionary Error Report: ${currentWord.ms}`);
+                const title = encodeURIComponent(`Laporan Ralat Kamus Sejarah: ${currentWord.ms}`);
                 const body = encodeURIComponent(reportText.value);
                 window.open(`${repo}?title=${title}&body=${body}`, "_blank");
                 reportForm.style.display = "none"; reportText.value = "";
