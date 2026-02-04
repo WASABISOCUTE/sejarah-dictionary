@@ -203,4 +203,40 @@ const words = [
         "tags": ["Profesion"],
         "updated": "2026-02-04"
     },
+    {
+        "ms": "Ekonomi",
+        "cn": "经济",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["General"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Fasal",
+        "cn": "条款",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Perjanjian"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Pengebumian",
+        "cn": "葬礼",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Peristiwa"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Percukaian",
+        "cn": "税收",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["General"],
+        "updated": "2026-02-04"
+    },
 ];
