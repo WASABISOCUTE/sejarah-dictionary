@@ -84,7 +84,7 @@ const words = [
     "MsDescription": "Dilaksanakan bagi memastikan kesejahteraan sesebuah kerajaan. Undang-undang menjadi panduan dalam pentadbiran. Undang-undang terpakai di seluruh wilayah pengaruh.",
     "Description": "法律是为规范人类活动而制定的法律。这些法律确保了人类活动的顺利进行。",
     "example": "Kerajaan Majapahit mengamalkan undang-undang Kutara Manawa.",
-    "tags": ["Profesion"],
+    "tags": ["General"],
     "updated": "2026-02-03"
   },
   {
@@ -112,5 +112,95 @@ const words = [
     "Description": "马六甲海事法是为规范马六甲港口的贸易活动而制定的法律。这些法律确保了马六甲港口贸易活动的顺利进行。",
     "tags": ["Perjanjian"],
     "updated": "2026-02-03"
-  },
+    },
+    {
+        "ms": "Sultan",
+        "cn": "苏丹",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Bendahara",
+        "cn": "宰相",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Penghulu Bandahari",
+        "cn": "财政部长",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Laksamana",
+        "cn": "海军将领",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Temenggung",
+        "cn": "天猛公",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Kedudukan",
+        "cn": "地位",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["General"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Sistem pentadbiran",
+        "cn": "行政体系",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Sistem"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Kerajaan",
+        "cn": "政府",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["General"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Sistem Pembesar Empat Lipatan",
+        "cn": "四倍数官员体系",
+        "MsDescription": "",
+        "Description": "",
+        "example": "",
+        "tags": ["Sistem"],
+        "updated": "2026-02-04"
+    },
+    {
+        "ms": "Orang Laut",
+        "cn": "海民",
+        "MsDescription": "",
+        "Description": "靠海维生的居民",
+        "example": "",
+        "tags": ["Profesion"],
+        "updated": "2026-02-04"
+    },
 ];
