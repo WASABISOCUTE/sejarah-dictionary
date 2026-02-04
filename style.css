@@ -1,8 +1,8 @@
 /* ===== Global ===== */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+    background: #3B2A1A; /* 深褐色背景 */
+    color: #EFE6D8; /* 羊皮纸文字 */
     padding: 16px;
     margin: 0;
     max-width: 700px;
@@ -12,6 +12,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #F5EBDD;
 }
 
 /* ===== Search ===== */
@@ -22,13 +23,13 @@ input {
     border-radius: 12px;
     border: none;
     margin-bottom: 20px;
-    background: #1e293b;
-    color: #e5e7eb;
+    background: #4A3623; /* 木质褐 */
+    color: #EFE6D8;
 }
 
-input::placeholder {
-    color: #9ca3af;
-}
+    input::placeholder {
+        color: #C8B9A6;
+    }
 
 /* ===== Filter ===== */
 #filter {
@@ -38,27 +39,27 @@ input::placeholder {
     margin-bottom: 20px;
 }
 
-#filter select,
-#filter button {
-    padding: 8px 12px;
-    border-radius: 10px;
-    border: none;
-    background: #1e293b;
-    color: #e5e7eb;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background 0.2s;
-}
+    #filter select,
+    #filter button {
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: none;
+        background: #4A3623;
+        color: #EFE6D8;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background 0.2s;
+    }
 
-#filter button:hover,
-#filter select:hover {
-    background: #2563eb;
-}
+        #filter button:hover,
+        #filter select:hover {
+            background: #6B4A2D; /* 高亮褐 */
+        }
 
 /* ===== Card ===== */
 .card {
     position: relative;
-    background: #1e293b;
+    background: #4A3623;
     padding: 18px;
     border-radius: 16px;
     margin-bottom: 12px;
@@ -66,15 +67,16 @@ input::placeholder {
     transition: transform 0.15s, background 0.15s;
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    background: #243047;
-}
+    .card:hover {
+        transform: translateY(-2px);
+        background: #5A4028;
+    }
 
-.card h2 {
-    font-size: 22px;
-    margin-bottom: 6px;
-}
+    .card h2 {
+        font-size: 22px;
+        margin-bottom: 6px;
+        color: #F3E6D2;
+    }
 
 /* ===== Tag ===== */
 .tags {
@@ -89,13 +91,14 @@ input::placeholder {
     font-size: 13px;
     border-radius: 999px;
     cursor: pointer;
-    background: #2563eb;
+    background: #7A5230; /* 标签褐 */
+    color: #FFF5E6;
     user-select: none;
 }
 
-.tag:hover {
-    opacity: 0.85;
-}
+    .tag:hover {
+        opacity: 0.85;
+    }
 
 /* ===== Mark Button ===== */
 .markBtn {
@@ -103,16 +106,16 @@ input::placeholder {
     top: 10px;
     right: 12px;
     background: transparent;
-    color: #f59e0b;
+    color: #D6A24C; /* 金色点缀 */
     font-size: 22px;
     border: none;
     cursor: pointer;
     transition: transform 0.15s;
 }
 
-.markBtn:hover {
-    transform: scale(1.25);
-}
+    .markBtn:hover {
+        transform: scale(1.25);
+    }
 
 /* ===== Detail ===== */
 #detail,
@@ -120,14 +123,15 @@ input::placeholder {
     margin-top: 20px;
 }
 
-#detail h2 {
-    font-size: 28px;
-    margin-bottom: 6px;
-}
+    #detail h2 {
+        font-size: 28px;
+        margin-bottom: 6px;
+        color: #F5EBDD;
+    }
 
-#detail p {
-    line-height: 1.6;
-}
+    #detail p {
+        line-height: 1.6;
+    }
 
 /* ===== Button ===== */
 #backBtn,
@@ -140,30 +144,30 @@ input::placeholder {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    color: #fff;
+    color: #FFF5E6;
     font-size: 14px;
     margin-top: 10px;
-    background: #2563eb;
+    background: #7A5230;
     transition: background 0.2s, transform 0.1s;
 }
 
-#backBtn:hover,
-#aboutBackBtn:hover,
-#reportBtn:hover,
-#submitReport:hover,
-#cancelReport:hover,
-#markDetailBtn:hover {
-    background: #1e40af;
-}
+    #backBtn:hover,
+    #aboutBackBtn:hover,
+    #reportBtn:hover,
+    #submitReport:hover,
+    #cancelReport:hover,
+    #markDetailBtn:hover {
+        background: #8C6239;
+    }
 
-#backBtn:active,
-#aboutBackBtn:active,
-#reportBtn:active,
-#submitReport:active,
-#cancelReport:active,
-#markDetailBtn:active {
-    transform: scale(0.96);
-}
+    #backBtn:active,
+    #aboutBackBtn:active,
+    #reportBtn:active,
+    #submitReport:active,
+    #cancelReport:active,
+    #markDetailBtn:active {
+        transform: scale(0.96);
+    }
 
 /* ===== Error Report ===== */
 #reportForm textarea {
@@ -171,8 +175,8 @@ input::placeholder {
     padding: 10px;
     border-radius: 10px;
     border: none;
-    background: #1e293b;
-    color: #e5e7eb;
+    background: #4A3623;
+    color: #EFE6D8;
     font-size: 14px;
     margin-bottom: 8px;
     resize: vertical;
@@ -183,19 +187,19 @@ input::placeholder {
     margin-top: 20px;
 }
 
-.about-section h3 {
-    margin-bottom: 8px;
-}
+    .about-section h3 {
+        margin-bottom: 8px;
+    }
 
-.about-section ul {
-    padding-left: 20px;
-}
+    .about-section ul {
+        padding-left: 20px;
+    }
 
-.about-section li {
-    margin-bottom: 6px;
-}
+    .about-section li {
+        margin-bottom: 6px;
+    }
 
-/* ===== Contributors Tooltip Icon ===== */
+/* ===== Tooltip Icon ===== */
 .info-icon {
     display: inline-flex;
     align-items: center;
@@ -204,51 +208,28 @@ input::placeholder {
     height: 18px;
     margin-left: 6px;
     border-radius: 50%;
-    border: 1px solid #94a3b8;
-    color: #94a3b8;
+    border: 1px solid #C8B9A6;
+    color: #C8B9A6;
     font-size: 12px;
     cursor: pointer;
     user-select: none;
 }
 
-.info-icon:hover {
-    background: #334155;
-}
-/* tooltip 修复样式 */
-.info-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  margin-left: 6px;
-  border-radius: 50%;
-  border: 1px solid #94a3b8;
-  font-size: 12px;
-  cursor: pointer;
-  user-select: none;
-}
+    .info-icon:hover {
+        background: #5A4028;
+    }
 
-.info-tooltip {
-  display: none;
-  margin-top: 8px;
-  padding: 10px 12px;
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  pointer-events: none; /* 防止鼠标进入导致闪烁 */
-}
-/* ===== Contributors Tooltip ===== */
+/* ===== Tooltip ===== */
 .info-tooltip {
     display: none;
-    background: #1e293b;
-    border-radius: 12px;
-    padding: 12px;
     margin-top: 8px;
-    font-size: 14px;
+    padding: 10px 12px;
+    background: #4A3623;
+    border: 1px solid #6B4A2D;
+    border-radius: 10px;
+    font-size: 13px;
     line-height: 1.5;
+    pointer-events: none;
 }
 
 /* ===== Footer ===== */
@@ -256,7 +237,7 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding: 16px 0;
-    color: #9ca3af;
+    color: #C8B9A6;
 }
 
 #aboutLink {
@@ -264,74 +245,70 @@ footer {
     text-decoration: underline;
 }
 
-#aboutLink:hover {
-    color: #e5e7eb;
-}
+    #aboutLink:hover {
+        color: #F5EBDD;
+    }
 
-/* ===== Hide Scroll Bar ===== */
-
-/* Chrome / Edge / Safari */
+/* ===== Scrollbar Hidden ===== */
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
 }
 
-/* Firefox */
 html {
     scrollbar-width: none;
 }
 
-/* IE */
 body {
     -ms-overflow-style: none;
 }
 
-/* ===== Added: Sort Control ===== */
+/* ===== Sort Control ===== */
 #sortSelect {
     padding: 8px 12px;
     border-radius: 10px;
     border: none;
-    background: #1e293b;
-    color: #e5e7eb;
+    background: #4A3623;
+    color: #EFE6D8;
     cursor: pointer;
     font-size: 15px;
 }
 
-#sortSelect:hover {
-    background: #2563eb;
-}
+    #sortSelect:hover {
+        background: #6B4A2D;
+    }
 
 /* ===== Detail Updated Time ===== */
 .detail-updated {
     margin-top: 18px;
     padding-top: 10px;
-    border-top: 1px dashed #334155;
+    border-top: 1px dashed #6B4A2D;
     font-size: 13px;
-    color: #9ca3af;
+    color: #C8B9A6;
 }
 
 .belongs-text {
-  font-size: 13px;
-  color: #94a3b8;
-  margin: 4px 0 6px;
+    font-size: 13px;
+    color: #C8B9A6;
+    margin: 4px 0 6px;
 }
 
 #pronounceBtn {
-  margin-left: 8px;
-  padding: 2px 6px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+    margin-left: 8px;
+    padding: 2px 6px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 245, 230, 0.12);
+    color: #FFF5E6;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
-#pronounceBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
+    #pronounceBtn:hover {
+        background: rgba(255, 245, 230, 0.22);
+    }
 
-#pronounceBtn:active {
-  transform: scale(0.92);
-}
+    #pronounceBtn:active {
+        transform: scale(0.92);
+    }
