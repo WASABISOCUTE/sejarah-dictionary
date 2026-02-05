@@ -285,21 +285,24 @@ const words = [
     "updated": "2026-02-04"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
+    "ms": "Revolusi",
+    "cn": "革命",
+    "MsDescription": "Perubahan yang signifikan dalam struktur atau sistem politik, ekonomi, atau sosial.",
+    "Description": "在政治、经济或社会结构方面发生的重要变革。",
     "example": "",
     "tags": ["General"],
     "updated": "2026-02-04"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
-    "example": "",
-    "tags": ["General"],
+    "ms": "Revolusi Keagungan",
+    "cn": "光荣革命",
+    "kawasan": "Kerajaan England",
+    "MsDescription": "Satu rampasan kuasa tanpa pertumpahan darah yang berlaku antara tahun 1688 dan 1689.",
+    "Description": "于1688年到1689年间发生的一场不流血政变，标志着英国君主立宪制的开端。",
+    "ringkasanAcara": "Belaku disebabkan oleh keinginan menegakkan kedaulatan parlimen dan hak asasi rakyat.",
+    "eventProcess": "此举是为了维护议会主权和人民的基本权利。",
+    "relatedPersonnel": "",
+    "tags": ["Revolusi"],
     "updated": "2026-02-04"
   },
   {
