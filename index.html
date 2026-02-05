@@ -26,6 +26,7 @@
             <option value="Benda">Benda</option>//物品
             <option value="Sistem">Sistem</option>//体系
             <option value="TingkahLaku">Tingkah Laku</option>//行为
+            <option value="Orang">Orang</option>//人物
         </select>
         <select id="sortSelect">
             <option value="">Lalai</option>
@@ -51,8 +52,12 @@
         <div id="dTags"></div>
 
         <p><strong>Kategori:</strong> <span id="dCategory"></span></p>
+        <p><strong>Kawasan:</strong> <span id="dKawasan"></span></p>
         <p><strong>中文:</strong> <span id="dDescription"></span></p>
         <p><strong>Bahasa Malayu:</strong> <span id="dMsDescription"></span></p>
+        <p><strong>Ringkasan Acara:</strong> <span id="dRingkasanAcara"></span></p>
+        <p><strong>Proses Acara:</strong> <span id="dEventProcess"></span></p>
+        <p><strong>Kakitangan yang berkaitan:</strong> <span id="drelatedPersonnel"></span></p>
         <p><strong>Contoh:</strong> <span id="dExample"></span></p>
         <!-- 图片 / Video / Link Container -->
         <div id="dMedia" style="margin-top: 15px;"></div>
@@ -154,6 +159,10 @@
         const dDescription = document.getElementById("dDescription");
         const dMsDescription = document.getElementById("dMsDescription");
         const dExample = document.getElementById("dExample");
+        const dKawasan = document.getElementById("dKawasan");
+        const dRingkasanAcara = document.getElementById("dRingkasanAcara");
+        const dEventProcess = document.getElementById("dEventProcess");
+        const drelatedPersonnel = document.getElementById("drelatedPersonnel");
         const dSimilar = document.getElementById("dSimilar");
         const belongsBlock = document.getElementById("belongsBlock");
         const belongsList = document.getElementById("belongsList");
@@ -258,6 +267,39 @@
             setVisible(dDescription, word.Description);
             setVisible(dMsDescription, word.MsDescription);
             setVisible(dExample, word.example);
+            setVisible(dKawasan, word.kawasan);
+            setVisible(dRingkasanAcara, word.ringkasanAcara);
+            setVisible(dEventProcess, word.eventProcess);
+            /* Kakitangan yang berkaitan / Related Personnel */
+            drelatedPersonnel.innerHTML = "";
+            if (word.relatedPersonnel && word.relatedPersonnel !== "无") {
+                drelatedPersonnel.parentElement.style.display = "block";
+
+                let people = [];
+                if (Array.isArray(word.relatedPersonnel)) {
+                    people = word.relatedPersonnel;
+                } else {
+                    people = word.relatedPersonnel.split(/,|，/).map(s => s.trim()).filter(s => s);
+                }
+
+                people.forEach(person => {
+                    const btn = document.createElement("span");
+                    btn.className = "tag";
+                    btn.textContent = person;
+                    btn.onclick = () => {
+                        const target = words.find(w => w.ms === person);
+                        if (target) {
+                            showDetail(target);
+                        } else {
+                            input.value = person;
+                            input.dispatchEvent(new Event('input'));
+                        }
+                    };
+                    drelatedPersonnel.appendChild(btn);
+                });
+            } else {
+                drelatedPersonnel.parentElement.style.display = "none";
+            }
 
             /* ===== Image / Video / Links ===== */
             const dMedia = document.getElementById("dMedia");
