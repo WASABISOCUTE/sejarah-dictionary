@@ -306,40 +306,40 @@ const words = [
     "updated": "2026-02-04"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Dasar Penjajahan British",
+    "cn": "英国殖民政策",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Perjanjian"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Pemberontakan",
+    "cn": "叛乱",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Tingkah Laku"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
+    "ms": "Askar upahan",
+    "cn": "雇佣兵",
+    "MsDescription": "Tentera yang disewa untuk berkhidmat dalam peperangan.",
+    "Description": "为战争服务的雇佣士兵。",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Profesion"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Sosioagama",
+    "cn": "社会宗教",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Isme"],
+    "updated": "2026-02-06"
   },
   {
     "ms": "",
