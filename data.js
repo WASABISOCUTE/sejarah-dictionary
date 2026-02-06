@@ -301,9 +301,9 @@ const words = [
     "Description": "于1688年到1689年间发生的一场不流血政变，标志着英国君主立宪制的开端。",
     "ringkasanAcara": "Belaku disebabkan oleh keinginan menegakkan kedaulatan parlimen dan hak asasi rakyat.",
     "eventProcess": "此举是为了维护议会主权和人民的基本权利。",
-    "relatedPersonnel": "",
+    "relatedPersonnel": ["Raja James II", "William of Orange", "Mary II", "Parlimen"],
     "tags": ["Revolusi"],
-    "updated": "2026-02-04"
+    "updated": "2026-02-06"
   },
   {
     "ms": "Dasar Penjajahan British",
@@ -342,58 +342,63 @@ const words = [
     "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Pendidikan",
+    "cn": "知识分子",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Profesion"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
+    "ms": "Indian National Congress (INC)",
+    "cn": "印度国民大会党",
+    "Pengasas": "A.O. Hume",
+    "tahun": "1885/12/28 - Sekarang",
+    "MsDescription": "Sebuah parti politik di India yang ditubuhkan pada tahun 1885.",
+    "Description": "印度的一个政党，成立于1885年。",
+    "relatedPersonnel": ["Mahatma Gandhi"],
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/960px-Indian_National_Congress_hand_logo.svg.png",
+    "tags": ["Parti Politik"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
+    "ms": "Perdana Menteri",
+    "cn": "首相",
+    "MsDescription": "Ketua kerajaan yang mengetuai kabinet dan bertanggungjawab terhadap pentadbiran negara.",
+    "Description": "领导内阁并负责国家行政管理的政府首脑。",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Profesion"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
-    "MsDescription": "",
-    "Description": "",
+    "ms": "Mahatma Gandhi",
+    "cn": "圣雄甘地",
+    "tahun": "1869/10/02 - 1948/01/30",
+    "MsDescription": "Seorang pemimpin politik dan spiritual India yang mengetuai gerakan kemerdekaan India daripada pemerintahan British.",
+    "Description": "印度的政治和精神领袖，领导印度从英国统治下争取独立运动。",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Orang"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Nationalism",
+    "cn": "爱国主义",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Satyagraha",
+    "cn": "非暴力不合作",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Tingkah Laku"],
+    "updated": "2026-02-06"
   },
   {
     "ms": "",
