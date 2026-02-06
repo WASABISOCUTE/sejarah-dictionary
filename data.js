@@ -102,7 +102,7 @@ const words = [
     "MsDescription": "Prasasti yang mengandungi sumpah setia rakyat kepada pemerintah Srivijaya.",
     "Description": "记载了臣民对三佛齐统治者效忠誓言的石碑。",
     "example": "",
-    "tags": ["Benda"],
+    "tags": ["Sumber"],
     "updated": "2026-02-03"
   },
   {
@@ -302,7 +302,7 @@ const words = [
     "ringkasanAcara": "Belaku disebabkan oleh keinginan menegakkan kedaulatan parlimen dan hak asasi rakyat.",
     "eventProcess": "此举是为了维护议会主权和人民的基本权利。",
     "relatedPersonnel": ["Raja James II", "William of Orange", "Mary II", "Parlimen"],
-    "tags": ["Revolusi"],
+    "tags": ["Peristiwa"],
     "updated": "2026-02-06"
   },
   {
@@ -347,7 +347,7 @@ const words = [
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["Profesion"],
+    "tags": ["Kumpulan"],
     "updated": "2026-02-06"
   },
   {
@@ -360,6 +360,7 @@ const words = [
     "relatedPersonnel": ["Mahatma Gandhi"],
     "example": "",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/960px-Indian_National_Congress_hand_logo.svg.png",
+    "imageAlt": "Indian National Congress (INC)",
     "tags": ["Parti Politik"],
     "updated": "2026-02-06"
   },
@@ -401,120 +402,155 @@ const words = [
     "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Radikal",
+    "cn": "激进",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Tingkah Laku"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Militan",
+    "cn": "激进分子",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Kumpulan"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Dahagi India 1857",
+    "cn": "印度民族起义",
+    "tahun": "1857-1858",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Peristiwa"],
+    "relatedPersonnel": ["Raja Bahadur"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Adat",
+    "cn": "习俗",
     "MsDescription": "",
     "Description": "",
     "example": "",
     "tags": ["General"],
-    "updated": "2026-02-04"
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Budaya",
+    "cn": "文化",
     "MsDescription": "",
     "Description": "",
     "example": "",
     "tags": ["General"],
-    "updated": "2026-02-04"
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Agama",
+    "cn": "宗教",
     "MsDescription": "",
     "Description": "",
     "example": "",
     "tags": ["General"],
-    "updated": "2026-02-04"
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Hak Asasi Rakyat",
+    "cn": "人权",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["General", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Keinginan",
+    "cn": "愿望",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["General", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Raja berkuasa mutlak",
+    "cn": "君主专制",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["General", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Menolak",
+    "cn": "反对",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Tingkah Laku", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Konsep",
+    "cn": "概念",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["General", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Raja Berperlembagaan",
+    "cn": "君主立宪制",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["General", "Isme"],
+    "updated": "2026-02-06"
   },
   {
-    "ms": "",
-    "cn": "",
+    "ms": "Golongan Pemerintah",
+    "cn": "统治阶层",
+    "MsDescription": "",
+    "Description": "",
+    "example": ["Sultan", "Pembesar", "Kerabat", "Ulama"],
+    "tags": ["Kumpulan"],
+    "updated": "2026-02-06"
+  },
+  {
+    "ms": "Golongan Dipermintah",
+    "cn": "被统治阶层",
+    "MsDescription": "",
+    "Description": "",
+    "example": ["Peniaga", "Petani", "Tukang", "Hamba raja", "Hamba berhutang", "Hamba biasa"],
+    "tags": ["Kumpulan"],
+    "updated": "2026-02-06"
+  },
+  {
+    "ms": "Two Treatises of Government",
+    "cn": "政府论",
+    "MsDescription": "Tajuk penuh:Two Treatises of Government: In the Former, The False Principles, and Foundation of Sir Robert Filmer, and His Followers, Are Detected and Overthrown. The Latter Is an Essay Concerning The True Original, Extent, and End of Civil Government",
+    "Description": "全称：《政府二论：前者关于罗伯特·菲尔默爵士及其追随者错误的理论和根据被查明并推翻；后者关于公民政府的起源、发展和终结》",
+    "example": "",
+    "tags": ["Sumber"],
+    "updated": "2026-02-06"
+  },
+  {
+    "ms": "Revolusi Amerika",
+    "cn": "美国独立战争",
+    "kawasan": "Amerika Utara",
+    "tahun": "1775/04/19 - 1783/09/03",
     "MsDescription": "",
     "Description": "",
     "example": "",
-    "tags": ["General"],
-    "updated": "2026-02-04"
+    "tags": ["Peristiwa"],
+    "ringkasanAcara": "",
+    "eventProcess": "",
+    "relatedPersonnel": ["George Washington"],
+    "updated": "2026-02-06"
   },
+
 ]

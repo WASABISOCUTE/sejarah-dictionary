@@ -139,7 +139,9 @@ input {
 #reportBtn,
 #submitReport,
 #cancelReport,
-#markDetailBtn {
+#markDetailBtn,
+#confirmSubmitWord,
+#cancelSubmitWord {
     padding: 8px 14px;
     border-radius: 10px;
     border: none;
@@ -156,7 +158,9 @@ input {
     #reportBtn:hover,
     #submitReport:hover,
     #cancelReport:hover,
-    #markDetailBtn:hover {
+    #markDetailBtn:hover,
+    #confirmSubmitWord:hover,
+    #cancelSubmitWord:hover {
         background: #8C6239;
     }
 
@@ -165,21 +169,49 @@ input {
     #reportBtn:active,
     #submitReport:active,
     #cancelReport:active,
-    #markDetailBtn:active {
+    #markDetailBtn:active,
+    #confirmSubmitWord:active,
+    #cancelSubmitWord:active {
         transform: scale(0.96);
     }
 
-/* ===== Error Report ===== */
-#reportForm textarea {
+/* ===== Error Report & Submit Form ===== */
+#reportForm textarea,
+#submitWordForm textarea,
+#submitWordForm input,
+#submitWordForm select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #6B4A2D;
     background: #4A3623;
     color: #EFE6D8;
     font-size: 14px;
     margin-bottom: 8px;
     resize: vertical;
+    box-sizing: border-box;
+}
+
+#submitWordForm {
+    border: 1px solid #6B4A2D;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    background-color: #4A3623; /* Same as Card bg */
+}
+
+#submitWordForm h3 {
+    margin-top: 0;
+    color: #F5EBDD;
+}
+
+#submitWordForm label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #C8B9A6;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* ===== Website Info ===== */

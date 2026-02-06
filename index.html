@@ -27,7 +27,9 @@
             <option value="Sistem">Sistem</option>//体系
             <option value="TingkahLaku">Tingkah Laku</option>//行为
             <option value="Orang">Orang</option>//人物
-            <option value="PartiPolitik">Parti Politik</option>//团体
+            <option value="PartiPolitik">Parti Politik</option>//政党
+            <option value="Kumpulan">Kumpulan</option>
+            <option value="Sumber">Sumber</option>
         </select>
         <select id="sortSelect">
             <option value="">Lalai</option>
@@ -37,6 +39,48 @@
         </select>
         <button id="clearFilter">Kosongkan Penapis</button>
         <button id="showMarkedBtn">⭐ Tunjukkan Perkataan yang Ditanda</button>
+        <button id="submitWordBtn">➕ Hantar Perkataan</button>
+    </div>
+
+    <div id="submitWordForm" style="display:none;">
+        <h3>Hantar Perkataan Baru</h3>
+        <p>Sila pilih kategori dan isikan butiran (Tidak Wajib):</p>
+
+        <label>Kategori:</label>
+        <select id="submitCategory"></select>
+
+        <label>Perkataan (Malay):</label>
+        <input type="text" id="subMs" placeholder="Contoh: Kemerdekaan">
+
+        <label>Perkataan (Chinese):</label>
+        <input type="text" id="subCn" placeholder="Contoh: 独立">
+
+        <label>Tahun:</label>
+        <input type="text" id="subTahun" placeholder="Contoh: 1957">
+
+        <label>Kawasan:</label>
+        <input type="text" id="subKawasan" placeholder="Contoh: Tanah Melayu">
+
+        <label>Maksud (Bahasa Melayu):</label>
+        <textarea id="subMsDesc" rows="2"></textarea>
+
+        <label>Maksud (中文):</label>
+        <textarea id="subDesc" rows="2"></textarea>
+
+        <label>Ringkasan Acara:</label>
+        <textarea id="subRingkasan" rows="2"></textarea>
+
+        <label>Proses Acara:</label>
+        <textarea id="subProses" rows="2"></textarea>
+
+        <label>Kakitangan yang berkaitan:</label>
+        <input type="text" id="subPersonal" placeholder="Contoh: Tunku Abdul Rahman">
+
+        <label>Contoh:</label>
+        <textarea id="subExample" rows="2"></textarea>
+
+        <button id="confirmSubmitWord">Hantar ke GitHub</button>
+        <button id="cancelSubmitWord">Batal</button>
     </div>
 
     <div id="list"></div>
@@ -174,6 +218,23 @@
         const subjectFilter = document.getElementById("subjectFilter");
         const clearFilter = document.getElementById("clearFilter");
         const showMarkedBtn = document.getElementById("showMarkedBtn");
+        const submitWordBtn = document.getElementById("submitWordBtn");
+        const submitWordForm = document.getElementById("submitWordForm");
+        const submitCategory = document.getElementById("submitCategory");
+        // Form inputs
+        const subMs = document.getElementById("subMs");
+        const subCn = document.getElementById("subCn");
+        const subTahun = document.getElementById("subTahun");
+        const subKawasan = document.getElementById("subKawasan");
+        const subMsDesc = document.getElementById("subMsDesc");
+        const subDesc = document.getElementById("subDesc");
+        const subRingkasan = document.getElementById("subRingkasan");
+        const subProses = document.getElementById("subProses");
+        const subPersonal = document.getElementById("subPersonal");
+        const subExample = document.getElementById("subExample");
+
+        const confirmSubmitWord = document.getElementById("confirmSubmitWord");
+        const cancelSubmitWord = document.getElementById("cancelSubmitWord");
 
         const dUpdated = document.getElementById("dUpdated");
 
@@ -519,6 +580,66 @@
         clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Tunjukkan Perkataan Ditanda"; render(words); };
         showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Tunjukkan Semua Perkataan" : "⭐ Tunjukkan Perkataan Ditanda"; applyFilters(); };
         markDetailBtn.onclick = () => { if (currentWord) { toggleMark(currentWord.ms); updateMarkBtn(markDetailBtn, currentWord.ms); } };
+        /* ===== Hantar Perkataan ===== */
+        // Populate Categories dynamically
+        function initSubmitCategories() {
+            submitCategory.innerHTML = "";
+            Array.from(subjectFilter.options).forEach(opt => {
+                if (opt.value) { // Skip "All"
+                    const newOpt = document.createElement("option");
+                    newOpt.value = opt.value;
+                    newOpt.textContent = opt.textContent;
+                    submitCategory.appendChild(newOpt);
+                }
+            });
+        }
+        initSubmitCategories();
+
+        submitWordBtn.onclick = () => {
+            initSubmitCategories(); // Populate categories each time the form is opened
+            submitWordForm.style.display = "block";
+            submitWordForm.scrollIntoView({ behavior: "smooth" });
+        };
+        cancelSubmitWord.onclick = () => {
+            submitWordForm.style.display = "none";
+            subMs.value = ""; subCn.value = ""; subTahun.value = ""; subKawasan.value = "";
+            subMsDesc.value = ""; subDesc.value = ""; subRingkasan.value = "";
+            subProses.value = ""; subPersonal.value = ""; subExample.value = "";
+        };
+
+        confirmSubmitWord.onclick = () => {
+            const ms = subMs.value.trim();
+            const cn = subCn.value.trim();
+
+            if (ms || cn) {
+                const repo = "https://github.com/WASABISOCUTE/sejarah-dictionary/issues/new";
+                const cat = submitCategory.value;
+                const title = encodeURIComponent(`Cadangan: ${ms} / ${cn}`);
+
+                let bodyContent = `### Kategori\n${cat}\n\n`;
+                bodyContent += `### Perkataan\n**Melayu:** ${ms}\n**Chinese:** ${cn}\n\n`;
+                if (subTahun.value.trim()) bodyContent += `### Tahun\n${subTahun.value}\n\n`;
+                if (subKawasan.value.trim()) bodyContent += `### Kawasan\n${subKawasan.value}\n\n`;
+                if (subMsDesc.value.trim()) bodyContent += `### Bahasa Melayu Description\n${subMsDesc.value}\n\n`;
+                if (subDesc.value.trim()) bodyContent += `### Chinese Description\n${subDesc.value}\n\n`;
+                if (subRingkasan.value.trim()) bodyContent += `### Ringkasan Acara\n${subRingkasan.value}\n\n`;
+                if (subProses.value.trim()) bodyContent += `### Proses Acara\n${subProses.value}\n\n`;
+                if (subPersonal.value.trim()) bodyContent += `### Kakitangan yang berkaitan\n${subPersonal.value}\n\n`;
+                if (subExample.value.trim()) bodyContent += `### Contoh\n${subExample.value}\n\n`;
+
+                const body = encodeURIComponent(bodyContent);
+                window.open(`${repo}?title=${title}&body=${body}`, "_blank");
+
+                // Clear form
+                submitWordForm.style.display = "none";
+                subMs.value = ""; subCn.value = ""; subTahun.value = ""; subKawasan.value = "";
+                subMsDesc.value = ""; subDesc.value = ""; subRingkasan.value = "";
+                subProses.value = ""; subPersonal.value = ""; subExample.value = "";
+            } else {
+                alert("Sila masukkan sekurang-kurangnya nama perkataan.");
+            }
+        };
+
         /* ===== 排序 ===== */
         function applySort(list) {
             const mode = sortSelect.value;
