@@ -552,5 +552,25 @@ const words = [
     "relatedPersonnel": ["George Washington"],
     "updated": "2026-02-06"
   },
-
+  {
+    "ms": "Dasar penjajahan British",
+    "cn": "英国殖民政策",
+    "kawasan": "India",
+    "tahun": "",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Perjanjian"],
+    "updated": "2026-02-06"
+  },
+  {
+    "ms": "Sun Yat Sen",
+    "cn": "孙中山",
+    "tahun": "1866/11/12 - 1925/03/12",
+    "MsDescription": "Seorang pemimpin revolusioner China yang memainkan peranan penting dalam kejatuhan Dinasti Qing dan penubuhan Republik China.",
+    "Description": "中国革命领袖，在清朝灭亡和中华民国成立中发挥了重要作用。",
+    "example": "",
+    "tags": ["Orang"],
+    "updated": "2026-02-06"
+  },
 ]
