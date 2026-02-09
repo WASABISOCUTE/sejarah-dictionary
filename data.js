@@ -573,4 +573,95 @@ const words = [
     "tags": ["Orang"],
     "updated": "2026-02-06"
   },
+  {
+    "ms": "Sovietisme",
+    "cn": "苏维埃主义",
+    "MsDescription": "Ideologi politik dan sistem pemerintahan yang diamalkan oleh Kesatuan Soviet.",
+    "Description": "苏联实行的政治意识形态和政府制度。",
+    "tags": ["Isme"],
+    "similar": ["Komunisme", "Marxisme"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Marxisme",
+    "cn": "马克思主义",
+    "MsDescription": "Teori sosial, politik, dan ekonomi yang diasaskan oleh Karl Marx dan Friedrich Engels.",
+    "Description": "由卡尔·马克思和弗里德里希·恩格斯创立的社会、政治和经济理论。",
+    "tags": ["Isme"],
+    "similar": ["Komunisme", "Sovietisme"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Bendahara",
+    "cn": "宰相",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Profesion"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Penghulu Bendahari",
+    "cn": "财政部长",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Profesion"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Laksamana",
+    "cn": "海军司令",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Profesion"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Pentadbiran pusat",
+    "cn": "中央行政层级",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Sistem"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Peringkat jajahan",
+    "cn": "殖民地层级",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Sistem"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Permuafakatan",
+    "cn": "共识",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Tingkah Laku"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Ketua turus",
+    "cn": "参谋长",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Tingkah Laku"],
+    "updated": "2026-02-09"
+  },
+  {
+    "ms": "Tun Perak",
+    "cn": "敦吡叻",
+    "tahun": "1926/02/09 - 2026/02/09",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Orang"],
+    "updated": "2026-02-09"
+  }
 ]
