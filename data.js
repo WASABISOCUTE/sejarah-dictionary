@@ -663,5 +663,42 @@ const words = [
     "example": "",
     "tags": ["Orang"],
     "updated": "2026-02-09"
-  }
+  },
+  {
+    "ms": "Undang-undang Kutara Manawa",
+    "cn": "",
+    "MsDescription": "Diamalkan oleh kerajaan Majapahit",
+    "Description": "由满者伯夷王国所实行的法律",
+    "example": "",
+    "tags": ["Perjanjian"],
+    "updated": "2026-02-11"
+  },
+  {
+    "ms": "Majapahit",
+    "cn": "满者伯夷",
+    "tahun": "1293/01/01 - 1365/12/31",
+    "MsDescription": "",
+    "Description": "",
+    "example": "",
+    "tags": ["Kerajaan"],
+    "updated": "2026-02-11"
+  },
+  {
+    "ms": "Wilayah Pengaruh",
+    "cn": "殖民地",
+    "MsDescription": "Kawasan yang rakyatnya menerima dan mengakui kekuasaan raja",
+    "Description": "人民接受并承认君主统治权的地区",
+    "example": "",
+    "tags": ["General"],
+    "updated": "2026-02-11"
+  },
+  {
+    "ms": "Rakyat",
+    "cn": "人民",
+    "MsDescription": "Penduduk dalam sebuah wilayah yang setia kepada raja dan tidak menderhaka",
+    "Description": "居住在某一地区、忠于君主且不反抗统治者的人",
+    "example": "",
+    "tags": ["General"],
+    "updated": "2026-02-11"
+  },
 ]
